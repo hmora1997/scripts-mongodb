@@ -40,12 +40,23 @@ Asegúrate de que la URI de conexión a MongoDB sea correcta en cada script. Act
 ```js
 const uri = "mongodb://localhost:27017/AWSDocumentDB";
 ```
+
+en el caso de qa deberia ser :
+```js
+const uri = "mongodb://<usuario>:<contraseña>@<host>:<puerto>/<nombreDB>?authSource=admin";
+```
 Asegurate que el nombre de la base de datos sea correcta :
-
-
+```js
+AWSDocumentDB
+```
 Asegurate de que la collections sean correctas  :
 
-
+```js
+RolesBkCollection
+```
+```js
+UsersBkCollection
+```
 
 
 Si tu configuración es diferente, actualiza este valor en los archivos:
