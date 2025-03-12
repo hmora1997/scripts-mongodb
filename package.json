@@ -4,7 +4,8 @@
   "scripts": {
     "test": "node testConnection.js",
     "user": "node insertUser.js",
-    "role": "node insertAdminRole.js"
+    "role": "node insertAdminRole.js",
+    "colec": "node inserCollections.js"
   },
   "dependencies": {
     "mongodb": "^6.14.2"
