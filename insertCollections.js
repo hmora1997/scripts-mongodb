@@ -1,9 +1,16 @@
 const { MongoClient } = require("mongodb");
 
-const uri = "mongodb://localhost:27017/AWSDocumentDB";
-const client = new MongoClient(uri);
+require("dotenv").config();
 
-const databaseName = "AWSDocumentDB";
+const user = process.env.DB_USER;
+const password = process.env.DB_PASSWORD;
+const clusterEndpoint = process.env.DB_ENDPOINT;
+const databaseName = process.env.DB_NAME;
+
+const encodedPassword = encodeURIComponent(password);
+
+// const uri = `mongodb://${user}:${encodedPassword}@${clusterEndpoint}/${databaseName}?authSource=admin&ssl=true&tlsAllowInvalidCertificates=true&retryWrites=false`;
+const uri = "mongodb://localhost:27017/AWSDocumentDB";
 
 const collectionsToCreate = [
   "ChannelsBkCollection",
@@ -16,7 +23,7 @@ const collectionsToCreate = [
   "SignatoriesBkCollection",
   "SignaturesBkCollection",
   "TokenActivoBkCollection",
-  "UsersBkCollection"
+  "UsersBkCollection",
 ];
 
 async function insertCollections() {
