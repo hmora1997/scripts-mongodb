@@ -13,15 +13,17 @@ async function insertUser() {
     const db = client.db(databaseName);
     const collection = db.collection(collectionName);
 
+    userCognitoSub = "24280458-8091-70d7-0348-521b986eb123";
+
     const newUser = {
-      // Puedes generar un _id propio o dejar que Mongo lo genere automáticamente
-      // _id: 'nuevo-id-personalizado',
-      firstName: "Nuevo",
-      lastName: "Usuario",
-      email: "nuevo@dominio.com",
+      _id: userCognitoSub,
+      firstName: "test",
+      lastName: "test",
+      email: "test@dominio.com",
       role: "67cb25e1569db8c516a8a187",
       created_at: new Date(),
       updated_at: new Date(),
+      user: userCognitoSub,
     };
 
     const result = await collection.insertOne(newUser);
